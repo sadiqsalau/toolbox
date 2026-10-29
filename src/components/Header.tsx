@@ -6,7 +6,7 @@ import { cn } from "../lib/utils";
 
 /** The steps for getting the tools. */
 const steps = [
-  "Pick a tool below. AI and Online tools open in the browser.",
+  "Pick a tool below. Online and AI tools open in the browser.",
   "For an installer, open the downloaded file and follow the steps.",
   "Pick the button for your laptop: Windows or macOS.",
 ];
