@@ -15,6 +15,10 @@ export const buttonVariants = tv({
         "bg-stone-700 text-stone-200",
         "hover:bg-stone-600 hover:text-green-400",
       ],
+      muted: [
+        "ring-1 ring-inset ring-stone-600 text-stone-400",
+        "hover:bg-stone-700 hover:text-green-400",
+      ],
     },
     size: {
       sm: "px-4 py-1.5 text-sm",

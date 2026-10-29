@@ -8,7 +8,7 @@ import { cn } from "../lib/utils";
 const steps = [
   "Pick a tool below. AI and Online tools open in the browser.",
   "For an installer, open the downloaded file and follow the steps.",
-  "Not sure which button? Pick 64-bit.",
+  "Pick the button for your laptop: Windows or macOS.",
 ];
 
 /** The page header with the title, steps and section links. */

@@ -12,10 +12,13 @@ type SectionProps = ParentProps<{
 export default function Section(props: SectionProps) {
   return (
     <section id={props.id} class="flex flex-col gap-4 scroll-mt-4">
+      {/* Heading */}
       <div class="flex flex-col gap-1">
         <SectionHeading>{props.title}</SectionHeading>
         <p class="text-sm text-stone-300">{props.description}</p>
       </div>
+
+      {/* Content */}
       {props.children}
     </section>
   );

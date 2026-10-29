@@ -21,6 +21,8 @@ import {
   TbOutlineWand,
 } from "solid-icons/tb";
 
+import { Platform } from "../lib/platform";
+
 /** The categories a link belongs to. */
 export const LinkCategory = {
   Install: "install",
@@ -35,6 +37,7 @@ export type LinkCategory = (typeof LinkCategory)[keyof typeof LinkCategory];
 export interface LinkAction {
   label: string;
   href: string;
+  platform?: Platform;
 }
 
 /** A program, extension or website the students use. */
@@ -56,6 +59,7 @@ export interface LinkSection {
   description: string;
   actionIcon: IconTypes;
   external: boolean;
+  showPlatform?: boolean;
 }
 
 /** The sections of the page, in display order. */
@@ -77,9 +81,10 @@ export const sections: LinkSection[] = [
   {
     category: LinkCategory.Install,
     title: "Install",
-    description: "Offline installers for Windows 10 and 11.",
+    description: "Offline installers for Windows 10 and 11, and macOS.",
     actionIcon: TbOutlineDownload,
     external: false,
+    showPlatform: true,
   },
   {
     category: LinkCategory.Extensions,
@@ -101,12 +106,19 @@ export const links: ResourceLink[] = [
     category: LinkCategory.Install,
     actions: [
       {
-        label: "64-bit",
+        label: "Windows",
         href: "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe",
+        platform: Platform.Windows,
       },
       {
-        label: "32-bit",
+        label: "Windows 32-bit",
         href: "https://dl.google.com/chrome/install/ChromeStandaloneSetup.exe",
+        platform: Platform.Windows,
+      },
+      {
+        label: "macOS",
+        href: "https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg",
+        platform: Platform.MacOS,
       },
     ],
   },
@@ -119,8 +131,14 @@ export const links: ResourceLink[] = [
     category: LinkCategory.Install,
     actions: [
       {
-        label: "64-bit",
+        label: "Windows",
         href: "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64",
+        platform: Platform.Windows,
+      },
+      {
+        label: "macOS",
+        href: "https://update.code.visualstudio.com/latest/darwin-universal/stable",
+        platform: Platform.MacOS,
       },
     ],
   },
@@ -134,8 +152,14 @@ export const links: ResourceLink[] = [
     category: LinkCategory.Install,
     actions: [
       {
-        label: "64-bit",
+        label: "Windows",
         href: "https://download.sublimetext.com/sublime_text_build_4215_x64_setup.exe",
+        platform: Platform.Windows,
+      },
+      {
+        label: "macOS",
+        href: "https://download.sublimetext.com/sublime_text_build_4215_mac.zip",
+        platform: Platform.MacOS,
       },
     ],
   },
@@ -148,8 +172,14 @@ export const links: ResourceLink[] = [
     category: LinkCategory.Install,
     actions: [
       {
-        label: "64-bit",
+        label: "Windows",
         href: "https://nodejs.org/dist/v26.13.0/node-v26.13.0-x64.msi",
+        platform: Platform.Windows,
+      },
+      {
+        label: "macOS",
+        href: "https://nodejs.org/dist/v26.13.0/node-v26.13.0.pkg",
+        platform: Platform.MacOS,
       },
     ],
   },
@@ -157,18 +187,25 @@ export const links: ResourceLink[] = [
     id: "python",
     name: "Python 3.15.2",
     description: "The Python language itself.",
-    note: 'Tick "Add python.exe to PATH", choose "Customize installation", then tick "Install for all users".',
+    note: 'On Windows, tick "Add python.exe to PATH", choose "Customize installation", then tick "Install for all users".',
     website: "https://www.python.org/",
     icon: TbOutlineBrandPython,
     category: LinkCategory.Install,
     actions: [
       {
-        label: "64-bit",
+        label: "Windows",
         href: "https://www.python.org/ftp/python/3.15.2/python-3.15.2-amd64.exe",
+        platform: Platform.Windows,
       },
       {
-        label: "32-bit",
+        label: "Windows 32-bit",
         href: "https://www.python.org/ftp/python/3.15.2/python-3.15.2.exe",
+        platform: Platform.Windows,
+      },
+      {
+        label: "macOS",
+        href: "https://www.python.org/ftp/python/3.15.2/python-3.15.2-macos11.pkg",
+        platform: Platform.MacOS,
       },
     ],
   },
@@ -176,14 +213,25 @@ export const links: ResourceLink[] = [
     id: "thonny",
     name: "Thonny 5.0.0",
     description: "A simple Python editor for beginners.",
-    note: 'Comes with Python built in. Choose "Install for all users".',
+    note: 'Comes with Python built in. On Windows, choose "Install for all users". On a Mac, check your chip under Apple menu > About This Mac.',
     website: "https://thonny.org/",
     icon: TbOutlineSchool,
     category: LinkCategory.Install,
     actions: [
       {
-        label: "64-bit",
+        label: "Windows",
         href: "https://github.com/thonny/thonny/releases/download/v5.0.0/thonny-5.0.0-x64.exe",
+        platform: Platform.Windows,
+      },
+      {
+        label: "macOS Apple chip",
+        href: "https://github.com/thonny/thonny/releases/download/v5.0.0/thonny-5.0.0-arm64.pkg",
+        platform: Platform.MacOS,
+      },
+      {
+        label: "macOS Intel",
+        href: "https://github.com/thonny/thonny/releases/download/v5.0.0/thonny-5.0.0-x64.pkg",
+        platform: Platform.MacOS,
       },
     ],
   },
@@ -197,12 +245,14 @@ export const links: ResourceLink[] = [
     category: LinkCategory.Install,
     actions: [
       {
-        label: "64-bit",
+        label: "Windows",
         href: "https://sourceforge.net/projects/codeblocks/files/Binaries/25.03/Windows/codeblocks-25.03mingw-setup.exe/download",
+        platform: Platform.Windows,
       },
       {
-        label: "32-bit",
+        label: "Windows 32-bit",
         href: "https://sourceforge.net/projects/codeblocks/files/Binaries/25.03/Windows/32bit/codeblocks-25.03mingw-32bit-setup.exe/download",
+        platform: Platform.Windows,
       },
     ],
   },
@@ -321,10 +371,14 @@ export const links: ResourceLink[] = [
   {
     id: "onlinegdb",
     name: "OnlineGDB",
-    description: "Write, run and debug C and C++ in the browser.",
+    description: "Write, run and debug Python, C and C++ in the browser.",
     icon: TbOutlineTerminal2,
     category: LinkCategory.Online,
     actions: [
+      {
+        label: "Python",
+        href: "https://www.onlinegdb.com/online_python_compiler",
+      },
       { label: "C", href: "https://www.onlinegdb.com/online_c_compiler" },
       { label: "C++", href: "https://www.onlinegdb.com/online_c++_compiler" },
     ],
