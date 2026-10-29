@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "@fontsource/quicksand/400.css";
+@import "@fontsource/quicksand/700.css";
+@import "@fontsource/fredoka-one/400.css";
+
+@theme inline {
+  --font-sans:
+    Quicksand, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-fredoka-one: Fredoka One;
+
+  --color-green-100: #dcffec;
+  --color-green-200: #b9ffd9;
+  --color-green-300: #97ffc6;
+  --color-green-400: #74ffb3;
+  --color-green-500: #51ffa0;
+  --color-green-600: #41cc80;
+  --color-green-700: #319960;
+  --color-green-800: #206640;
+  --color-green-900: #103320;
+}
+
+@layer base {
+  :where(:has(> input[aria-hidden="true"], > input.sr-only)) {
+    position: relative;
+  }
+}
