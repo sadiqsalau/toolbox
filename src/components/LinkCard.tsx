@@ -1,6 +1,7 @@
 import { For, Show } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import type { IconTypes } from "solid-icons";
+import { TbOutlineExternalLink } from "solid-icons/tb";
 
 import Button from "./Button";
 import type { ResourceLink } from "../resources/links";
@@ -50,6 +51,22 @@ export default function LinkCard(props: LinkCardProps) {
               </Button>
             )}
           </For>
+
+          {/* Website */}
+          <Show when={props.link.website}>
+            {(website) => (
+              <Button
+                variant="secondary"
+                href={website()}
+                aria-label={`${props.link.name} official website`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TbOutlineExternalLink class="size-4" />
+                Website
+              </Button>
+            )}
+          </Show>
         </div>
       </div>
     </div>

@@ -22,7 +22,11 @@ export default function App() {
       <main class="flex flex-col gap-10">
         <For each={sections}>
           {(section) => (
-            <Section title={section.title} description={section.description}>
+            <Section
+              id={section.category}
+              title={section.title}
+              description={section.description}
+            >
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <For each={linksByCategory.get(section.category)}>
                   {(link) => (
