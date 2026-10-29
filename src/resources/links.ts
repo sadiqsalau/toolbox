@@ -11,6 +11,7 @@ import {
   TbOutlineBrackets,
   TbOutlineBroadcast,
   TbOutlineCode,
+  TbOutlineCpu,
   TbOutlineDownload,
   TbOutlineExternalLink,
   TbOutlineEye,
@@ -403,6 +404,22 @@ export const links: ResourceLink[] = [
       },
       { label: "C", href: "https://www.onlinegdb.com/online_c_compiler" },
       { label: "C++", href: "https://www.onlinegdb.com/online_c++_compiler" },
+    ],
+  },
+  {
+    id: "wokwi",
+    name: "Wokwi",
+    description:
+      "Program a simulated ESP32 board, with LEDs, buttons and sensors.",
+    website: "https://wokwi.com/",
+    icon: TbOutlineCpu,
+    category: LinkCategory.Online,
+    actions: [
+      {
+        label: "Python",
+        href: "https://wokwi.com/projects/new/micropython-esp32",
+      },
+      { label: "Arduino", href: "https://wokwi.com/projects/new/esp32" },
     ],
   },
 ];
