@@ -375,6 +375,20 @@ export const links: ResourceLink[] = [
     actions: [{ label: "Open", href: "https://lovable.dev/" }],
   },
   {
+    id: "jupyterlite",
+    name: "JupyterLite Python",
+    description:
+      "Run Python in the browser, with no ads and no sign-up. Works on phones and tablets.",
+    icon: TbOutlineBrandPython,
+    category: LinkCategory.Online,
+    actions: [
+      {
+        label: "Open",
+        href: "https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1",
+      },
+    ],
+  },
+  {
     id: "python-tutor",
     name: "Python Tutor",
     description: "Watch your Python code run, one step at a time.",
