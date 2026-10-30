@@ -11,9 +11,11 @@ export default function PlatformNotice() {
       {/* Phone or tablet */}
       <Match when={device === Device.Mobile}>
         <Notice>
-          Installers are for laptops. Open{" "}
-          <strong class="text-white">tools.sadiqsalau.com</strong> on your
-          laptop to download them.
+          On a phone or tablet? These installers need a laptop. Use the{" "}
+          <a href="#online" class="text-green-500 hover:underline">
+            Online
+          </a>{" "}
+          tools instead: OnlineGDB for Python, and W3Schools Tryit for HTML.
         </Notice>
       </Match>
 
@@ -24,7 +26,8 @@ export default function PlatformNotice() {
           <a href="#online" class="text-green-500 hover:underline">
             Online
           </a>{" "}
-          tools instead: OnlineGDB for Python, C and C++, and CodePen for HTML.
+          tools instead: OnlineGDB for Python, C and C++, and W3Schools Tryit
+          for HTML.
         </Notice>
       </Match>
     </Switch>

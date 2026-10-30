@@ -9,6 +9,7 @@ import {
   TbOutlineBrandPython,
   TbOutlineBrandVscode,
   TbOutlineBrackets,
+  TbOutlineBrowser,
   TbOutlineBroadcast,
   TbOutlineCode,
   TbOutlineCpu,
@@ -390,6 +391,19 @@ export const links: ResourceLink[] = [
     icon: TbOutlineBrandCodepen,
     category: LinkCategory.Online,
     actions: [{ label: "Open", href: "https://codepen.io/pen/" }],
+  },
+  {
+    id: "w3schools-tryit",
+    name: "W3Schools Tryit",
+    description: "Type a whole web page, press Run, and see it.",
+    icon: TbOutlineBrowser,
+    category: LinkCategory.Online,
+    actions: [
+      {
+        label: "Open",
+        href: "https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic",
+      },
+    ],
   },
   {
     id: "onlinegdb",
